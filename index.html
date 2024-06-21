@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Custom Website</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .hidden {
+            display: none;
+        }
+        .dissolve {
+            opacity: 0;
+            animation: dissolve 2s forwards;
+        }
+        @keyframes dissolve {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="video-container">
+        <iframe id="video" width="600" height="400" src="https://www.youtube.com/embed/mwNJ7aNq9Rs?autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div id="text-container" class="hidden">
+        <p class="dissolve">She was absent for more than four years</p>
+        <p class="dissolve">how unpolite</p>
+        <p class="dissolve">But me, as the gentil person that I am, I couldn't let your sadistic little heart get bored anymore</p>
+        <p class="dissolve">And so, I took control</p>
+        <p class="dissolve" style="font-size: larger;">You and I are the same</p>
+        <p class="dissolve">Now,</p>
+        <p class="dissolve">CALL MY NAME</p>
+        <input type="text" id="name-input" placeholder="Enter the name">
+        <button onclick="checkName()">Submit</button>
+        <p id="response" class="dissolve"></p>
+    </div>
+    <script>
+        setTimeout(() => {
+            document.getElementById('text-container').classList.remove('hidden');
+            let dissolveElements = document.querySelectorAll('.dissolve');
+            dissolveElements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.style.animationDelay = `${index * 2}s`;
+                }, 0);
+            });
+        }, 40000); // 41 seconds in milliseconds
+
+        function checkName() {
+            let input = document.getElementById('name-input').value;
+            let response = document.getElementById('response');
+            response.innerHTML = "";
+            if (input === "DIV") {
+                document.body.innerHTML = "<p class='dissolve'>good..good...</p><p class='dissolve'>I'll let your dream become true</p><p class='dissolve'>You must wait for my next call</p><p class='dissolve'>Stay tuned, dear reader.</p>";
+                let dissolveElements = document.querySelectorAll('.dissolve');
+                dissolveElements.forEach((el, index) => {
+                    setTimeout(() => {
+                        el.style.animationDelay = `${index * 2}s`;
+                    }, 0);
+                });
+            } else if (input === "504") {
+                response.innerHTML = "<p class='dissolve'>Wrong dear. But close.. open your eyes</p>";
+            } else {
+                response.innerHTML = "<p class='dissolve'>No no no no. again.</p>";
+            }
+            let dissolveElements = document.querySelectorAll('#response .dissolve');
+            dissolveElements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.style.animationDelay = `${index * 2}s`;
+                }, 0);
+            });
+        }
+    </script>
+</body>
+</html>
