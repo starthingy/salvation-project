@@ -10,6 +10,8 @@
             color: white;
             font-family: Arial, sans-serif;
             text-align: center;
+            margin: 0;
+            padding: 0;
         }
         .hidden {
             display: none;
@@ -21,6 +23,26 @@
         @keyframes dissolve {
             to {
                 opacity: 1;
+            }
+        }
+        #video-container {
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+        }
+        #video {
+            width: 100%;
+            height: auto;
+        }
+        input, button {
+            margin-top: 10px;
+        }
+        @media (max-width: 600px) {
+            body {
+                font-size: 14px;
+            }
+            #video {
+                height: auto;
             }
         }
     </style>
